@@ -6,25 +6,26 @@ If you want to quickly post videos, it can be done with Jekyll and liquid. The c
 
 ## How to use it
 
-To do this, you need to add a variable called either `vimeo-id` or `youtube-id` to your video post's frontmatter. You also need to insert some liquid code in both `/index.html` and `/_layouts/post.html`[^1].
+To do this, you need to add a variable called either `vimeo-id` or `youtube-id` to your video post's frontmatter. You also need to insert some liquid code in both `/index.html` and `/_layouts/post.html`. The same needs to be done for any other layout you created. For example, if you want to use it with pages too, you also have to add it to `/layouts/page.html`.
+
 
 ### YAML frontmatter
 
 This is simple. Your YAML frontmatter should look like this for Youtube videos:
 
----
-title: Something to dance to
-layout: post
-youtube-id: vctPOz4RL9g
----
+    ---
+    title: Something to dance to
+    layout: post
+    youtube-id: vctPOz4RL9g
+    ---
 
 Or like this for Vimeo videos:
 
----
-title: Something to dance to
-layout: post
-vimeo-id: 77091919
----
+    ---
+    title: Something to dance to
+    layout: post
+    vimeo-id: 77091919
+    ---
 
 ### .html files
 
@@ -62,5 +63,3 @@ Compared to using the embed codes in the posts itself, this method has two main 
 ## Disadvantage
 
 The major disadvantage is that you can only have the video at a predefined location within your post. In my example files, I chose to put it between the headline / post meta data and the post content. You can, however, still use the regular way of embedding a video if you need it at a different place.
-
-[^1]:	The same needs to be done for any other layout you created. For example, if you want to use it with pages too, you also have to add it to `/layouts/page.html`
