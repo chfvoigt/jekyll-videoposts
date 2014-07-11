@@ -1,3 +1,15 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
+
+  <article class="post-content">
+    
     {% if page.youtube-id %}
       <div class="video-container">
         <iframe width="560" height="315" src="//www.youtube.com/embed/{{ page.youtube-id }}" frameborder="0" allowfullscreen></iframe>
@@ -7,3 +19,8 @@
         <iframe src="//player.vimeo.com/video/{{ page.vimeo-id }}?byline=0&amp;portrait=0" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     {% endif %}
+
+  {{ content }}
+  </article>
+
+</div>
