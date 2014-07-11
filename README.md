@@ -2,12 +2,11 @@
 
 ## What it is
 
-If you want to quickly post videos, it can be done with Jekyll and liquid. The code in this repository enables you to post a video just by adding the ID of a Vimeo or Youtube video to post's YAML frontmatter.
+The code in this repository enables you to quickly post a video just by adding the ID of a Vimeo or Youtube video to post's YAML frontmatter.
 
 ## How to use it
 
-To do this, you need to add a variable called either `vimeo-id` or `youtube-id` to your video post's frontmatter. You also need to insert some liquid code in both `/index.html` and `/_layouts/post.html`. The same needs to be done for any other layout you created. For example, if you want to use it with pages too, you also have to add it to `/layouts/page.html`.
-
+To do this, you need to add a variable called either `vimeo-id` or `youtube-id` followed by the video's ID to your post's frontmatter. You also need to insert some liquid code in both `/index.html` and `/_layouts/post.html` which will read the variable and insert the embed code. The same needs to be done for any other layout you created. For example, if you want to use videos with pages too, you also have to add it to `/layouts/page.html`.
 
 ### YAML frontmatter
 
@@ -27,9 +26,11 @@ Or like this for Vimeo videos:
     vimeo-id: 77091919
     ---
 
+SCNR.
+
 ### .html files
 
-For the loop in `/index.html`, you need to fill in the following lines which check whether a variable for a video ID is present in a post's frontmatter and, if yes, inserts the corresponding embed code.
+For the loop in `/index.html`, you need to fill in the following lines which check whether a variable for a video ID is present in a post's frontmatter and, if so, inserts the corresponding embed code.
 
     {% if post.vimeo-id %}
       <div class="video-container">
@@ -41,7 +42,7 @@ For the loop in `/index.html`, you need to fill in the following lines which che
       </div>
     {% endif %}
 
-For `/layouts/post.html` or any other layout file, you need to change ´post.´ to ´page.´:
+For `/layouts/post.html` or any other layout file, you need to change `post.` to `page.`:
 
     {% if page.vimeo-id %}
       <div class="video-container">
@@ -53,12 +54,14 @@ For `/layouts/post.html` or any other layout file, you need to change ´post.´ 
       </div>
     {% endif %}
 
+I have added two example files to the repository in case you'd like to have a look at it.
+
 ## Advantages
 
 Compared to using the embed codes in the posts itself, this method has two main advantages:
 
 * If you decide to change the embed code options (or if the video hoster requires you to do so), you will not have to change every single code, but only the layout files.
-* Your posts also look cleaner.
+* Your posts will look cleaner.
 
 ## Disadvantage
 
