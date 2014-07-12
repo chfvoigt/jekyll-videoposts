@@ -1,16 +1,16 @@
 # Simple Video Posts for Jekyll Sites
 
-## What it is
+## Introduction
 
-The code in this repository enables you to quickly post a video just by adding the ID of a Vimeo or Youtube video to post's YAML frontmatter.
+The code in this repository enables you to create video posts by adding the ID of a Vimeo or Youtube video to the post's front matter.
 
-## How to use it
+## Getting started
 
-To do this, you need to add a variable called either `vimeo-id` or `youtube-id` followed by the video's ID to your post's frontmatter. You also need to insert some liquid code in both `/index.html` and `/_layouts/post.html` which will read the variable and insert the embed code. The same needs to be done for any other layout you created. For example, if you want to use videos with pages too, you also have to add it to `/layouts/page.html`.
+To do this, you need to add a variable to your post's front matter. Depending on site it has to be called `vimeo-id` or `youtube-id` followed by the video's ID. You also need to insert a few lines of liquid code in both `/index.html` and `/_layouts/post.html` which will read the variable and insert the videos' embed code. The same needs to be done for any other layout you are using. If for example you want to use videos with pages too, you also have to add it to `/layouts/page.html`.
 
 ### YAML frontmatter
 
-This is simple. Your YAML frontmatter should look like this for Youtube videos:
+Your YAML frontmatter should look like this for Youtube videos:
 
     ---
     title: Something to dance to
@@ -28,9 +28,9 @@ Or like this for Vimeo videos:
 
 SCNR.
 
-### .html files
+### Template and layout files
 
-For the loop in `/index.html`, you need to fill in the following lines which check whether a variable for a video ID is present in a post's frontmatter and, if so, inserts the corresponding embed code.
+For the loop in `/index.html`, you need to fill in the following lines. The snippet checks whether a video ID is present in the post's front matter and, if yes, inserts the corresponding embed code (which you can tweak to your liking).
 
     {% if post.vimeo-id %}
       <div class="video-container">
@@ -54,15 +54,15 @@ For `/layouts/post.html` or any other layout file, you need to change `post.` to
       </div>
     {% endif %}
 
-I have added two example files to the repository in case you'd like to have a look at it.
+I have added two complete example files to the repository.
 
-## Advantages
+## Advantages compared to regular embeds
 
 Compared to using the embed codes in the posts itself, this method has two main advantages:
 
-* If you decide to change the embed code options (or if the video hoster requires you to do so), you will not have to change every single code, but only the layout files.
+* If you decide to change the embed code (or if the video hoster requires you to do so), you will not have to change every single post, but only the template/layout files.
 * Your posts will look cleaner.
 
-## Disadvantage
+## Disadvantages compared to regular embeds
 
-The major disadvantage is that you can only have the video at a predefined location within your post. In my example files, I chose to put it between the headline / post meta data and the post content. You can, however, still use the regular way of embedding a video if you need it at a different place.
+The major disadvantage is that you can only have the video at a predefined location within your post. In the example files, the videos are inserted between the headline and the content. For most use cases, this should be an acceptable solution.You can, however, still use regular video embeds if you need it at a different place.
